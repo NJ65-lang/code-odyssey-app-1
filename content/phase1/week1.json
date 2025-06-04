@@ -1,0 +1,18 @@
+{
+  "week": "Week 1",
+  "challenges": [
+    {
+      "type": "mcq",
+      "question": "What is the time complexity of binary search?",
+      "options": ["O(n)", "O(log n)", "O(n log n)"],
+      "answer": "O(log n)"
+    },
+    {
+      "type": "coding",
+      "title": "Reverse a String",
+      "description": "Write a Python function to reverse a string.",
+      "input": "hello",
+      "expected_output": "olleh"
+    }
+  ]
+}
