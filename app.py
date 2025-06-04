@@ -4,8 +4,11 @@ import os
 
 st.set_page_config(page_title="Code Odyssey", layout="centered")
 
-st.title("🚀 Code Odyssey: Mastering the Tech Galaxy")
-st.subheader("🌌 Week 1 Challenges")
+st.title("🧭 .NET 8.0 Developer Learning Journey")
+st.subheader("🌟 Week 1: Core C# & .NET Basics")
+
+st.markdown(f"**Badge:** 🎖️ {data.get('badge', '')}")
+st.markdown(f"**Leaderboard:** 🏆 {data.get('leaderboard', '')}")
 
 # Construct safe relative path
 json_path = os.path.join("content", "phase1", "week1.json")
