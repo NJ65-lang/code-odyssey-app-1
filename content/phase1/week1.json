@@ -6,9 +6,38 @@
   "challenges": [
     {
       "type": "mcq",
-      "question": "Which of these is a value type in C#?",
+      "question": "Which of the following is a value type in C#?",
       "options": ["string", "class", "int", "object"],
       "answer": "int"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the default value of a bool variable in C#?",
+      "options": ["true", "false", "null", "0"],
+      "answer": "false"
+    },
+    {
+      "type": "mcq",
+      "question": "Which keyword is used to define a method that does not return a value?",
+      "options": ["void", "null", "empty", "none"],
+      "answer": "void"
+    },
+    {
+      "type": "mcq",
+      "question": "What does LINQ stand for?",
+      "options": [
+        "Language Integrated Query",
+        "Language International Query",
+        "Logical Integrated Query",
+        "Linked Integrated Query"
+      ],
+      "answer": "Language Integrated Query"
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following collection types preserves insertion order?",
+      "options": ["Dictionary", "List", "HashSet", "Stack"],
+      "answer": "List"
     },
     {
       "type": "mcq",
@@ -17,25 +46,28 @@
       "answer": "both async and await"
     },
     {
-      "type": "coding",
-      "title": "Reverse a String in C#",
-      "description": "Write a C# method that takes a string and returns it reversed.",
-      "input": "hello",
-      "expected_output": "olleh"
+      "type": "mcq",
+      "question": "Which of these is used to handle exceptions in C#?",
+      "options": ["catch-try", "try-catch", "exception-catch", "catch-block"],
+      "answer": "try-catch"
     },
     {
-      "type": "coding",
-      "title": "LINQ Filtering",
-      "description": "Write a LINQ query to filter all even numbers from a given array.",
-      "input": "[1, 2, 3, 4, 5, 6]",
-      "expected_output": "[2, 4, 6]"
+      "type": "mcq",
+      "question": "Which operator is used for null-coalescing in C#?",
+      "options": ["??", "?.", "!", "&&"],
+      "answer": "??"
     },
     {
-      "type": "coding",
-      "title": "Use Span<T>",
-      "description": "Demonstrate how to use Span<T> for slicing an array efficiently.",
-      "input": "[10, 20, 30, 40, 50]",
-      "expected_output": "[20, 30, 40]"
+      "type": "mcq",
+      "question": "What is the output type of a LINQ query using .ToList()?",
+      "options": ["IEnumerable", "List", "Array", "Collection"],
+      "answer": "List"
+    },
+    {
+      "type": "mcq",
+      "question": "Which feature in C# 8.0 enables range selection from arrays?",
+      "options": ["Span<T>", "Range operator (..)", "Index operator (^)", "All of the above"],
+      "answer": "All of the above"
     }
   ]
 }
