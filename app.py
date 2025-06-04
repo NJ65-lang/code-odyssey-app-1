@@ -1,4 +1,3 @@
-
 import streamlit as st
 import json
 import os
@@ -24,31 +23,35 @@ except FileNotFoundError:
     st.error("Challenge file not found.")
     st.stop()
 
-# Display badge and leaderboard title
 st.markdown(f"**Badge:** 🎖️ {data.get('badge', '')}")
 st.markdown(f"**Leaderboard:** 🏆 {data.get('leaderboard', '')}")
 st.markdown("---")
 
 # Split challenges
-mcq_challenges = [c for c in data["challenges"] if c["type"] == "mcq"]
+mcq_challenges = [c for c in data["challenges"] if c["type"] == "mcq"][:10]
 code_challenges = [c for c in data["challenges"] if c["type"] == "coding"]
 
-# Score tracking
-score = 0
+# --- Timer for MCQ section ---
+if "quiz_start_time" not in st.session_state:
+    st.session_state.quiz_start_time = datetime.now()
+
+elapsed = datetime.now() - st.session_state.quiz_start_time
+minutes, seconds = divmod(elapsed.seconds, 60)
+st.markdown(f"⏰ **Time elapsed:** `{minutes:02d}:{seconds:02d}`")
 
 # Part 1: MCQ Arena
-st.header("🧠 Part 1: MCQ Arena")
+st.header("🧠 Part 1: MCQ Arena (10 Questions)")
+
+score = 0
 for idx, challenge in enumerate(mcq_challenges):
-    st.markdown(f"### MCQ {idx + 1}")
+    st.markdown(f"### MCQ {idx + 1} / {len(mcq_challenges)}")
     answer = st.radio(challenge["question"], challenge["options"], key=f"mcq_{idx}")
     if st.button(f"Submit Answer {idx + 1}", key=f"btn_mcq_{idx}"):
-        response_time = datetime.now()
         if answer == challenge["answer"]:
             st.success("✅ Correct!")
             score += 1
         else:
             st.error("❌ Incorrect.")
-        # Store responses (to be implemented): user_name, challenge_id, answer, response_time
 
 # Part 2: Code Craft
 st.header("👨‍💻 Part 2: Code Craft")
@@ -60,7 +63,7 @@ for idx, challenge in enumerate(code_challenges):
     st.text_area("Write your code in C# (offline)", height=150, key=f"code_{idx}")
     st.info("⚠️ C# execution not supported in-browser. Submit offline or use peer review.")
 
-# Final Score for MCQs
+# Final MCQ Score
 st.markdown("---")
 total_mcqs = len(mcq_challenges)
 st.markdown(f"### 🏁 Final MCQ Score for {user_name}: **{score} / {total_mcqs}**")
